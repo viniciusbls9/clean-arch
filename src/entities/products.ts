@@ -1,9 +1,15 @@
 export default class Product {
   _name: string;
-  _cost: number;
+  _cost!: number;
+  _id: string;
 
-  constructor(name: string, cost?: number) {
+  constructor(name: string, id: string) {
     this._name = name;
+    this._id = id;
+  }
+
+  get id(): string {
+    return this._id;
   }
 
   get name(): string {
