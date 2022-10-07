@@ -15,7 +15,13 @@ describe("create productusecase unit test", () => {
       salesPrice: 300,
     };
 
-    const createProductUseCase = new CreateProductUseCase();
+    const productGateway = () => {
+      return {
+        create: jest.fn(),
+      };
+    };
+
+    const createProductUseCase = new CreateProductUseCase(productGateway());
     const result = await createProductUseCase.execute(input);
     expect(result).toEqual(output);
   });
